@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeuroLearn — Teacher Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Navbar ── -->
+  <header class="navbar">
+    <div class="navbar-brand">
+      <span class="brand-icon">🧠</span>
+      <span class="brand-name">NeuroLearn</span>
+    </div>
+    <nav class="navbar-links">
+      <a href="index.html" class="nav-link">Student</a>
+      <a href="dashboard.html" class="nav-link active">Teacher Dashboard</a>
+    </nav>
+  </header>
+
+  <!-- ── Dashboard body ── -->
+  <main class="dashboard-container">
+
+    <div class="dashboard-header">
+      <h1 class="dashboard-title">📊 Session Dashboard</h1>
+      <p class="dashboard-subtitle">Emotion history from the current browser session</p>
+    </div>
+
+    <!-- Summary stat cards -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-label">Total Events</div>
+        <div id="stat-total" class="stat-value">—</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Session Duration</div>
+        <div id="stat-duration" class="stat-value">—</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Most Common Mood</div>
+        <div id="stat-top-emotion" class="stat-value">—</div>
+      </div>
+    </div>
+
+    <!-- Emotion frequency bar chart -->
+    <div class="chart-card">
+      <h2>Emotion Frequency</h2>
+      <div class="chart-wrapper">
+        <canvas id="emotion-chart"></canvas>
+      </div>
+    </div>
+
+    <!-- Event timeline -->
+    <div class="timeline-card">
+      <h2>Event Timeline</h2>
+      <ul id="timeline-list" class="timeline-list">
+        <li class="empty-state">No session data yet. Open the Student page to start learning.</li>
+      </ul>
+    </div>
+
+    <!-- Actions -->
+    <div class="dashboard-controls">
+      <button id="clear-btn" class="btn btn-danger">🗑 Clear Session Data</button>
+      <a href="index.html" class="btn btn-primary">← Back to Lesson</a>
+    </div>
+
+  </main>
+
+  <!-- Chart.js for the bar chart -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+  <script src="dashboard.js"></script>
+
+</body>
+</html>

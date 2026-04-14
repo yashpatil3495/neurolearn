@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeuroLearn — Adaptive Lessons</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Top navigation bar ── -->
+  <header class="navbar">
+    <div class="navbar-brand">
+      <span class="brand-icon">🧠</span>
+      <span class="brand-name">NeuroLearn</span>
+    </div>
+    <nav class="navbar-links">
+      <a href="index.html" class="nav-link active">Student</a>
+      <a href="dashboard.html" class="nav-link">Teacher Dashboard</a>
+    </nav>
+  </header>
+
+  <!-- ── Main lesson area ── -->
+  <main class="lesson-container">
+
+    <!-- Status bar shown while Claude is adapting content -->
+    <div id="status-bar" class="status-bar hidden">
+      <span class="spinner"></span>
+      Adapting content to your mood…
+    </div>
+
+    <!-- Topic badge + lesson title -->
+    <div class="lesson-header">
+      <span id="topic-badge" class="badge badge-topic">Loading…</span>
+      <h1 id="lesson-title" class="lesson-title">Loading Lesson…</h1>
+    </div>
+
+    <!-- Live emotion indicator -->
+    <div class="emotion-row">
+      <span class="emotion-label">Detected mood:</span>
+      <span id="emotion-badge" class="badge badge-emotion badge-neutral">
+        😐 Detecting…
+      </span>
+    </div>
+
+    <!-- Lesson content block (fades in on update) -->
+    <article id="lesson-content" class="lesson-content">
+      <p id="content-text">Starting webcam and loading lesson…</p>
+    </article>
+
+    <!-- Navigation controls -->
+    <div class="lesson-controls">
+      <button id="next-btn" class="btn btn-primary">Next Lesson →</button>
+      <a href="dashboard.html" class="btn btn-secondary">View Dashboard</a>
+    </div>
+
+  </main>
+
+  <!-- ── Fixed webcam preview (bottom-right corner) ── -->
+  <div class="webcam-wrapper">
+    <video id="webcam" autoplay muted playsinline></video>
+    <span class="webcam-label">Live Emotion Detection</span>
+  </div>
+
+  <!-- face-api.js for in-browser emotion detection -->
+  <script defer src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+  <script defer src="app.js"></script>
+
+</body>
+</html>
